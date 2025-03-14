@@ -29,7 +29,7 @@ def add():
         conn.close()
         return redirect(url_for('index'))
 
-    return render_template('add.html')
+    return render_template('book_form.html', title='Add Book', book=None, button_text='Add Book')
 
 @app.route('/edit/<int:id>', methods=('GET', 'POST'))
 def edit(id):
@@ -48,7 +48,7 @@ def edit(id):
         return redirect(url_for('index'))
 
     conn.close()
-    return render_template('edit.html', book=book)
+    return render_template('book_form.html', title='Edit Book', book=book, button_text='Update Book')
 
 @app.route('/delete/<int:id>', methods=('POST',))
 def delete(id):
